@@ -1,3 +1,17 @@
 {
+  "Datos": [
+    {
+      "valorUno": 30.4,
+      "valorDos": 3,
+      "operacion": [ "Add", "Subtract", "Multiply", "Divide", "Concatenate" ],
+      "eleccion": 1
+    },
+    {
+      "valorUno": 30.4,
+      "valorDos": 3,
+      "operacion": [ "Add", "Subtract", "Multiply", "Divide", "Concatenate" ],
+      "eleccion": 2
+    }
 
+  ]
 }
