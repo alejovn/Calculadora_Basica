@@ -11,5 +11,7 @@ namespace Calculadora_Basica.POCO
         public double valorUno { get; set; }
         public double valorDos { get; set; }
         public string operacion { get; set; }
+
+        public double resultado { get; set; }
     }
 }

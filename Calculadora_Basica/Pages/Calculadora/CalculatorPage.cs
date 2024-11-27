@@ -12,9 +12,10 @@ namespace Calculadora_Basica.Pages.Calculadora
         private readonly By _txtprimerNumero = By.Id("number1Field");
         private readonly By _txtsegundoNumero = By.Id("number2Field");
         private readonly By _btnCalcular = By.Id("calculateButton");
-        private readonly By _cbxSelccionar = By.Id("numberAnswerField");
+        private readonly By _cbxSelccionar = By.Id("selectOperationDropdown");
         private readonly By _btnLimpiar = By.Id("clearButton");
         private readonly By _chkIntegerOnly = By.Id("integerSelect");
+        private readonly By _txtResultado = By.Id("numberAnswerField");
 
         // Actions
         public IWebElement PrimerNumero => _driver.FindElement(_txtprimerNumero);
@@ -23,6 +24,7 @@ namespace Calculadora_Basica.Pages.Calculadora
         public IWebElement SeleccionarOp => _driver.FindElement(_cbxSelccionar);
         public IWebElement LimpiarButtom => _driver.FindElement(_btnLimpiar);
         public IWebElement IntegerOnlyComp => _driver.FindElement(_chkIntegerOnly);
+        public IWebElement Resultado => _driver.FindElement(_txtResultado);
 
         public void IngresarNumeros(double num1, double num2)
         {
@@ -47,16 +49,18 @@ namespace Calculadora_Basica.Pages.Calculadora
             CalcularButtom.Click();
         }
 
-        /*public bool ValidarBoton()
+       public bool ValidarBoton()
         {
-            bool seMuestra = LogoutButtom.Displayed;
+            bool seMuestra = CalcularButtom.Displayed;
             return seMuestra;
-        }
-        public bool ValidarIngresoCorrecto()
+        } 
+        public bool ValidarResultado(double result)
         {
-            bool isLogged = LoginMessage.Text.Contains("You logged into a secure area!") && PageMessage.Text.Equals("Welcome to the Secure Area. When you are done click logout below.");
-            return isLogged;
-        }*/
+            NumberFormatInfo nfi = new NumberFormatInfo();
+            nfi.NumberDecimalSeparator = ".";
+            bool isResult = Resultado.GetAttribute("value").Equals(result.ToString(nfi));
+            return isResult;
+        }
 
         public void DarClickBotonLimpiar()
         {

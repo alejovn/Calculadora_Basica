@@ -4,6 +4,8 @@ using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
 using OpenQA.Selenium;
 using Calculadora_Basica.Pages.Calculadora;
+using AventStack.ExtentReports;
+using AventStack.ExtentReports.Reporter;
 
 namespace Calculadora_Basica.Tests.Calculadora.Tests
 {
@@ -17,17 +19,17 @@ namespace Calculadora_Basica.Tests.Calculadora.Tests
         public BasePage page;
         public TomarCaptura captura;
 
-        /* reportes
+        //reportes
         public static ExtentTest test;
-        public static ExtentReports reports;*/
+        public static ExtentReports reports;
 
 
         [SetUp]
         public void IniciarNavegador()
         {
             driver = new ChromeDriver();
-            wait = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
+            wait = new WebDriverWait(driver, TimeSpan.FromSeconds(30));
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(30);
             driver.Manage().Window.Maximize();
             driver.Navigate().GoToUrl(baseURL);
             calculator = new CalculatorPage(driver, wait);
@@ -40,6 +42,20 @@ namespace Calculadora_Basica.Tests.Calculadora.Tests
         {
             driver.Close();
             driver.Quit();
+        }
+        [OneTimeSetUp]
+        public void IniciarReporte()
+        {
+            reports = new ExtentReports();
+            ExtentSparkReporter htmlreporter = new ExtentSparkReporter(@"..\..\Reportes\index.html");
+            reports.AttachReporter(htmlreporter);
+            htmlreporter.Config.Theme = AventStack.ExtentReports.Reporter.Config.Theme.Dark;
+        }
+
+        [OneTimeTearDown]
+        public void generarReporte()
+        {
+            reports.Flush();
         }
 
     }

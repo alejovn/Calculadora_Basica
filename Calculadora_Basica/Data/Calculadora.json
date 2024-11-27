@@ -1,28 +1,33 @@
 {
   "Datos": [
     {
-      "valorUno": 30.4,
+      "valorUno": 3.4,
       "valorDos": 3,
-      "operacion": "Concatenate" 
+      "resultado":  3.43,
+      "operacion": "Concatenate"
     },
     {
-      "valorUno": 30.4,
+      "valorUno": 30,
       "valorDos": 3,
+      "resultado": 10,
       "operacion": "Divide"
     },
     {
-      "valorUno": 30.4,
+      "valorUno": 30,
       "valorDos": 3,
+      "resultado": 91,
       "operacion": "Multiply"
     },
     {
       "valorUno": 30.4,
       "valorDos": 3,
+      "resultado": 27.4,
       "operacion": "Subtract"
     },
     {
       "valorUno": 30.4,
       "valorDos": 3,
+      "resultado": 33.4,
       "operacion": "Add"
     }
 
