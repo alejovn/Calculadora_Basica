@@ -14,12 +14,12 @@ namespace Calculadora_Basica.Tests.Calculadora
             get
             {
                 var json = new LeerJson();
-                return json.Calcular_data().Select(data => new TestCaseData(data.valorDos, data.valorUno, data.operacion));
+                return json.Calcular_data().Select(data => new TestCaseData(data.valorDos, data.valorUno));
             }
         }
         [Test]
         [TestCaseSource(nameof(TestData))]
-        public void RealizarOperacion(string num1, string num2,string []operacion )
+        public void RealizarOperacion(double num1, double num2 )
         {
             //test = reports.CreateTest("Validando ingreso correcto");
 

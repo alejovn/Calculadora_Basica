@@ -1,5 +1,6 @@
 ﻿using OpenQA.Selenium.Support.UI;
 using OpenQA.Selenium;
+using System.Globalization;
 
 namespace Calculadora_Basica.Pages.Calculadora
 {
@@ -23,10 +24,11 @@ namespace Calculadora_Basica.Pages.Calculadora
         public IWebElement LimpiarButtom => _driver.FindElement(_btnLimpiar);
         public IWebElement IntegerOnlyComp => _driver.FindElement(_chkIntegerOnly);
 
-        public void IngresarNumeros(string num1, string num2)
+        public void IngresarNumeros(double num1, double num2)
         {
-            PrimerNumero.SendKeys(num1);
-            SegundoNumero.SendKeys(num2);
+            NumberFormatInfo nfi = new NumberFormatInfo();
+            PrimerNumero.SendKeys("" + num1.ToString(nfi));
+            SegundoNumero.SendKeys("" + num2.ToString(nfi));
 
         }
         public void Seleccionar(string select)

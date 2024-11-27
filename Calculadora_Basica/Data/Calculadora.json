@@ -3,14 +3,27 @@
     {
       "valorUno": 30.4,
       "valorDos": 3,
-      "operacion": [ "Add", "Subtract", "Multiply", "Divide", "Concatenate" ],
-      "eleccion": 1
+      "operacion": "Concatenate" 
     },
     {
       "valorUno": 30.4,
       "valorDos": 3,
-      "operacion": [ "Add", "Subtract", "Multiply", "Divide", "Concatenate" ],
-      "eleccion": 2
+      "operacion": "Divide"
+    },
+    {
+      "valorUno": 30.4,
+      "valorDos": 3,
+      "operacion": "Multiply"
+    },
+    {
+      "valorUno": 30.4,
+      "valorDos": 3,
+      "operacion": "Subtract"
+    },
+    {
+      "valorUno": 30.4,
+      "valorDos": 3,
+      "operacion": "Add"
     }
 
   ]
